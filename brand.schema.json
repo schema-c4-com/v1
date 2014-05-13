@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "Brand",
+	"description": "Defines a brand entity",
+	"type": "object",
+	"allOf": [ { "$ref": "hal.schema.json#" } ],
+	"properties": {
+		"title": {
+			"type": "string",
+			"title": "Brand Title",
+			"description": "This is the title given to the brand in PIRATE."
+		},
+		"synopsis": {
+			"type": "string",
+			"title": "Brand Synopsis",
+			"description": "The medium-length synopsis given to the brand in CGS."
+		},
+		"websafeTitle": {
+			"type": "string"
+		},
+		"_links": { 
+			"allOf": [
+				{ 
+					"$ref": "hal.schema.json#/definitions/_links" 
+				},
+				{
+					"properties": {
+						"image": { "$ref": "hal.schema.json#/definitions/link" }
+					},
+					"required": [ "image" ]
+				}
+			]
+		}
+	},
+	"required": [ "title", "synopsis", "websafeTitle" ]
+}
